@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "816222041694",
+    "project_id": "qoute-project",
+    "storage_bucket": "qoute-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816222041694:android:af258272dcedad8781a6cf",
+        "android_client_info": {
+          "package_name": "com.example.qoute_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "816222041694-85r5jb1h6e2lslnnn9a33rfdeolpsghr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.qoute_app",
+            "certificate_hash": "d22af52a25a1ca6fa2a3950986d448d08cac48d3"
+          }
+        },
+        {
+          "client_id": "816222041694-r3l9i9m1shiutr92v7toon1sdrhtghi3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDo3KDb_8APBo4EI1ylzIM4ys3K7fyumR0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "816222041694-r3l9i9m1shiutr92v7toon1sdrhtghi3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
