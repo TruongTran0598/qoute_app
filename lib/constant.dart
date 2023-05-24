@@ -38,5 +38,3 @@ final listGradientColors = [
     const Color(0xFFf9d639),
   ],
 ];
-
-/// test push code
