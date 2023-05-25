@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qoute_app/app/app_cubit.dart';
+import 'package:qoute_app/config/theme.dart';
 import 'package:qoute_app/helpers/app_laguage.dart';
+import 'package:qoute_app/helpers/router.dart';
 import 'package:qoute_app/helpers/widget_life_cycle.dart';
 import 'package:qoute_app/view/common/common_colors/app_colors.dart';
 import 'package:qoute_app/view/splash_screen/splash_screen.dart';
@@ -42,33 +44,40 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       builder: (context, child) {
         return BlocProvider<AppCubit>(
-          create: (context) => AppCubit(), /// khởi tạo app cubit
+          create: (context) => AppCubit(),
+
+          /// khởi tạo app cubit
           child: child,
         );
       },
-      child: MaterialApp(
-        title: 'quote app - truongtm1001',
-        supportedLocales: AppLanguage.supportLanguages,
-        localizationsDelegates: const [
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-          bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-            backgroundColor: AppColors.bgBottomNavigatorColor,
-            elevation: 0,
-            selectedItemColor: AppColors.primaryColor,
-            unselectedItemColor: AppColors.unSelectColor,
-          ),
-          tabBarTheme: const TabBarTheme(
-            labelColor: AppColors.primaryColor,
-            unselectedLabelColor: AppColors.unSelectColor,
-          ),
-        ),
-        home: const SplashScreen(),
+      child: BlocBuilder<AppCubit, AppState>(
+        builder: (context, state) {
+          return MaterialApp(
+            title: 'quote app - truongtm1001',
+
+            /// language ---------------
+            supportedLocales: AppLanguage.supportLanguages,
+            locale: state.locale,
+            localizationsDelegates: [
+              AppLocalizationDelegation(),
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+
+            /// app's global key -------
+            navigatorKey: AppRouter.appNavKey,
+            darkTheme: darkThem,
+            themeMode: state.themeMode,
+            theme:lightThem,
+
+            /// delete banner debug ----
+            debugShowCheckedModeBanner: false,
+
+            ///-------------------------
+            home: const SplashScreen(),
+          );
+        },
       ),
     );
   }
